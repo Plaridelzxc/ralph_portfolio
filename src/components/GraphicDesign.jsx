@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import SectionBg from './SectionBg'
 
 const designs = [
@@ -71,18 +71,6 @@ const skills = [
 export default function GraphicDesign() {
   const [filter, setFilter] = useState('All')
   const [lightbox, setLightbox] = useState(null)
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) ref.current?.classList.add('visible')
-      },
-      { threshold: 0.08 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
 
   // Close lightbox on Escape
   useEffect(() => {
@@ -99,23 +87,23 @@ export default function GraphicDesign() {
   return (
     <section id="graphic-design" className="relative overflow-hidden py-28 px-6 bg-black/30">
       <SectionBg primary="#a855f7" secondary="#ec4899" flip />
-      <div ref={ref} className="reveal relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-purple-400 font-medium tracking-[0.2em] uppercase text-xs mb-3">
+          <p className="text-purple-400 font-medium tracking-[0.2em] uppercase text-xs mb-3" data-animate="fade-down">
             Creative Work
           </p>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-4">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-4" data-animate="fade-up">
             Graphic <span className="grad-purple">Design</span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
+          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base" data-animate="fade-up">
             Creating compelling visuals for fitness brands, energy companies,
             and community events.
           </p>
         </div>
 
         {/* Filter tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div className="flex flex-wrap justify-center gap-3 mb-10" data-animate="fade-up">
           {filters.map((f) => (
             <button
               key={f}
@@ -131,8 +119,9 @@ export default function GraphicDesign() {
           ))}
         </div>
 
-        {/* Gallery grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {/* Gallery grid — animate the whole grid, not individual items
+            so filter changes don't break the entrance animation */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" data-animate="fade-up">
           {filtered.map((item, i) => (
             <button
               key={i}
@@ -158,7 +147,7 @@ export default function GraphicDesign() {
 
         {/* Tools & Skills */}
         <div className="mt-14 space-y-6">
-          <div className="text-center">
+          <div className="text-center" data-animate="fade-up">
             <p className="text-slate-500 text-xs uppercase tracking-widest mb-4">
               Software & Tools
             </p>
@@ -173,7 +162,7 @@ export default function GraphicDesign() {
               ))}
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-center" data-animate="fade-up">
             <p className="text-slate-500 text-xs uppercase tracking-widest mb-4">
               Skills
             </p>

@@ -61,7 +61,7 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         {/* Text */}
-        <div className="flex-1 text-center lg:text-left">
+        <div className="flex-1 text-center lg:text-left" data-animate="fade-left">
           <span className="inline-block text-indigo-400 font-medium tracking-[0.2em] uppercase text-xs mb-6 px-4 py-2 rounded-full border border-indigo-500/20 bg-indigo-500/5">
             Welcome to my portfolio
           </span>
@@ -107,7 +107,7 @@ export default function Hero() {
         </div>
 
         {/* Photo */}
-        <div className="relative flex-shrink-0">
+        <div className="relative flex-shrink-0" data-animate="fade-right">
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
             {/* Glow rings */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500/40 to-purple-600/30 blur-2xl scale-110" />

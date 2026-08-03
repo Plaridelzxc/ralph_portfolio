@@ -36,7 +36,7 @@ export default function Navbar({ activeSection }) {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="font-display font-bold text-xl text-white tracking-tight"
         >
-          RT<span className="text-indigo-400">.</span>
+          Ralph Tillana<span className="text-indigo-400">.</span>
         </button>
 
         {/* Desktop nav */}

@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import SectionBg from './SectionBg'
 
 const contactLinks = [
@@ -9,8 +8,8 @@ const contactLinks = [
       </svg>
     ),
     label: 'Email',
-    value: 'ralph.tillana@email.com',
-    href: 'mailto:ralph.tillana@email.com',
+    value: 'tillanaralphjudiel@gmail.com',
+    href: 'mailto:tillanaralphjudiel@gmail.com',
   },
   {
     icon: (
@@ -20,7 +19,7 @@ const contactLinks = [
     ),
     label: 'LinkedIn',
     value: 'linkedin.com/in/ralphtillana',
-    href: 'https://www.linkedin.com/in/ralphtillana',
+    href: 'https://www.linkedin.com/in/ralph-tillana-5b4708314/',
   },
   {
     icon: (
@@ -29,43 +28,30 @@ const contactLinks = [
       </svg>
     ),
     label: 'GitHub',
-    value: 'github.com/ralphtillana',
-    href: 'https://github.com/ralphtillana',
+    value: 'github.com/Plaridelzxc',
+    href: 'https://github.com/Plaridelzxc',
   },
 ]
 
 export default function Contact() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) ref.current?.classList.add('visible')
-      },
-      { threshold: 0.1 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section id="contact" className="relative overflow-hidden py-28 px-6 bg-black/30">
       <SectionBg primary="#6366f1" secondary="#a855f7" flip />
-      <div ref={ref} className="reveal relative z-10 max-w-3xl mx-auto text-center">
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
         {/* Header */}
-        <p className="text-indigo-400 font-medium tracking-[0.2em] uppercase text-xs mb-3">
+        <p className="text-indigo-400 font-medium tracking-[0.2em] uppercase text-xs mb-3" data-animate="fade-down">
           Get in Touch
         </p>
-        <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-6">
+        <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-6" data-animate="fade-up">
           Let&apos;s <span className="grad-purple">Connect</span>
         </h2>
-        <p className="text-slate-400 text-base sm:text-lg mb-14 leading-relaxed">
+        <p className="text-slate-400 text-base sm:text-lg mb-14 leading-relaxed" data-animate="fade-up">
           Have a project in mind, need creative support, or just want to say
           hi? My inbox is always open — I&apos;ll get back to you as soon as possible.
         </p>
 
         {/* Contact cards */}
-        <div className="grid sm:grid-cols-3 gap-4 mb-12">
+        <div className="grid sm:grid-cols-3 gap-4 mb-12 stagger">
           {contactLinks.map((c, i) => (
             <a
               key={i}
@@ -73,6 +59,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="glass rounded-2xl p-6 flex flex-col items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/30 hover:shadow-lg hover:shadow-indigo-900/20 group"
+              data-animate="zoom-in"
             >
               <div className="text-indigo-400 group-hover:text-indigo-300 transition-colors">
                 {c.icon}
@@ -91,8 +78,9 @@ export default function Contact() {
 
         {/* CTA */}
         <a
-          href="mailto:ralph.tillana@email.com"
+          href="mailto:tillanaralphjudiel@gmail.com"
           className="inline-flex items-center gap-3 px-10 py-4 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-full transition-all duration-200 hover:shadow-xl hover:shadow-indigo-500/25 text-base"
+          data-animate="fade-up"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

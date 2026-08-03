@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import SectionBg from './SectionBg'
 
 const stats = [
@@ -9,36 +8,23 @@ const stats = [
 ]
 
 export default function About() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) ref.current?.classList.add('visible')
-      },
-      { threshold: 0.1 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section id="about" className="relative overflow-hidden py-28 px-6">
       <SectionBg primary="#6366f1" secondary="#8b5cf6" />
-      <div ref={ref} className="reveal relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-indigo-400 font-medium tracking-[0.2em] uppercase text-xs mb-3">
+          <p className="text-indigo-400 font-medium tracking-[0.2em] uppercase text-xs mb-3" data-animate="fade-down">
             Get to know me
           </p>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white" data-animate="fade-up">
             About Me
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Photos collage */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4" data-animate="fade-right">
             <img
               src="/images/about-1.jpg"
               alt="Ralph outdoors"
@@ -57,7 +43,7 @@ export default function About() {
           </div>
 
           {/* Bio */}
-          <div>
+          <div data-animate="fade-left">
             <h3 className="font-display font-bold text-2xl sm:text-3xl text-white mb-5">
               Multi-Skilled Creative &amp;{' '}
               <span className="grad-purple">Technical Professional</span>
@@ -77,9 +63,9 @@ export default function About() {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 stagger">
               {stats.map((stat) => (
-                <div key={stat.label} className="glass rounded-2xl p-5">
+                <div key={stat.label} className="glass rounded-2xl p-5" data-animate="zoom-in">
                   <div className="font-display font-bold text-3xl grad-purple">
                     {stat.value}
                   </div>

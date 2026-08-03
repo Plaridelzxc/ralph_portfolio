@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import MovingBackground from './components/MovingBackground'
+import ScrollAnimator from './components/ScrollAnimator'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -35,6 +36,7 @@ export default function App() {
       <MovingBackground />
       {/* All page content sits above the canvas */}
       <div className="relative z-10">
+      <ScrollAnimator />
       <Navbar activeSection={activeSection} />
       <Hero />
       <About />

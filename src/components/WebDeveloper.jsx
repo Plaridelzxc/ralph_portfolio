@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import SectionBg from './SectionBg'
 
 const projects = [
@@ -94,43 +93,31 @@ const badgeColor = {
 }
 
 export default function WebDeveloper() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) ref.current?.classList.add('visible')
-      },
-      { threshold: 0.08 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section id="web-dev" className="relative overflow-hidden py-28 px-6 bg-black/30">
       <SectionBg primary="#10b981" secondary="#14b8a6" flip />
-      <div ref={ref} className="reveal relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-emerald-400 font-medium tracking-[0.2em] uppercase text-xs mb-3">
+          <p className="text-emerald-400 font-medium tracking-[0.2em] uppercase text-xs mb-3" data-animate="fade-down">
             Projects
           </p>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-4">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-4" data-animate="fade-up">
             Web <span className="grad-emerald">Developer</span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
+          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base" data-animate="fade-up">
             Building functional, responsive, and scalable applications — from
             admin dashboards to mobile apps and games.
           </p>
         </div>
 
         {/* Project grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger">
           {projects.map((project, i) => (
             <div
               key={i}
               className="glass rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-900/20"
+              data-animate="fade-up"
             >
               {/* Screenshot */}
               <div className="relative overflow-hidden h-44">
@@ -180,7 +167,7 @@ export default function WebDeveloper() {
         {/* Tech stack */}
         <div className="mt-16 space-y-6">
           {techCategories.map((cat) => (
-            <div key={cat.label} className="text-center">
+            <div key={cat.label} className="text-center" data-animate="fade-up">
               <p className="text-slate-500 text-xs uppercase tracking-widest mb-4">
                 {cat.label}
               </p>
@@ -200,17 +187,18 @@ export default function WebDeveloper() {
 
         {/* AI Tools */}
         <div className="mt-10">
-          <div className="text-center mb-6">
+          <div className="text-center mb-6" data-animate="fade-up">
             <p className="text-slate-500 text-xs uppercase tracking-widest mb-1">
               AI Tools
             </p>
             <p className="text-slate-600 text-xs">Integrated into my daily workflow</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 stagger">
             {aiTools.map((ai) => (
               <div
                 key={ai.name}
                 className="rounded-2xl border border-indigo-500/20 bg-indigo-500/5 p-4 text-center hover:border-indigo-500/40 hover:bg-indigo-500/10 transition-all duration-200"
+                data-animate="zoom-in"
               >
                 <p className="text-indigo-300 font-semibold text-sm">{ai.name}</p>
                 <p className="text-slate-500 text-xs mt-1 leading-snug">{ai.use}</p>

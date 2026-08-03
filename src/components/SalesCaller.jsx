@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import SectionBg from './SectionBg'
 
 const experiences = [
@@ -53,32 +52,19 @@ const skills = [
 ]
 
 export default function SalesCaller() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) ref.current?.classList.add('visible')
-      },
-      { threshold: 0.08 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section id="sales" className="relative overflow-hidden py-28 px-6">
       <SectionBg primary="#3b82f6" secondary="#06b6d4" />
-      <div ref={ref} className="reveal relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-blue-400 font-medium tracking-[0.2em] uppercase text-xs mb-3">
+          <p className="text-blue-400 font-medium tracking-[0.2em] uppercase text-xs mb-3" data-animate="fade-down">
             Outreach & Sales
           </p>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-4">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-4" data-animate="fade-up">
             Sales &amp; <span className="grad-blue">Leads Caller</span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
+          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base" data-animate="fade-up">
             Driving results through strategic outreach, lead qualification, and
             persuasive communication across real estate and energy sectors.
           </p>
@@ -92,6 +78,7 @@ export default function SalesCaller() {
               className={`grid lg:grid-cols-2 gap-10 items-start ${
                 i % 2 === 1 ? 'lg:grid-flow-dense' : ''
               }`}
+              data-animate="fade-up"
             >
               {/* Info card */}
               <div className={i % 2 === 1 ? 'lg:col-start-2' : ''}>
@@ -149,7 +136,7 @@ export default function SalesCaller() {
 
         {/* Platforms & Skills */}
         <div className="mt-16 space-y-6">
-          <div className="text-center">
+          <div className="text-center" data-animate="fade-up">
             <p className="text-slate-500 text-xs uppercase tracking-widest mb-4">
               Platforms & Tools
             </p>
@@ -164,7 +151,7 @@ export default function SalesCaller() {
               ))}
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-center" data-animate="fade-up">
             <p className="text-slate-500 text-xs uppercase tracking-widest mb-4">
               Skills
             </p>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import SectionBg from './SectionBg'
 
 const highlights = [
@@ -63,19 +63,7 @@ const skills = [
 ]
 
 export default function CustomerService() {
-  const ref = useRef(null)
   const [lightbox, setLightbox] = useState(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) ref.current?.classList.add('visible')
-      },
-      { threshold: 0.08 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
 
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') setLightbox(null) }
@@ -86,27 +74,28 @@ export default function CustomerService() {
   return (
     <section id="customer-service" className="relative overflow-hidden py-28 px-6">
       <SectionBg primary="#f59e0b" secondary="#f97316" />
-      <div ref={ref} className="reveal relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-amber-400 font-medium tracking-[0.2em] uppercase text-xs mb-3">
+          <p className="text-amber-400 font-medium tracking-[0.2em] uppercase text-xs mb-3" data-animate="fade-down">
             Client Relations
           </p>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-4">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-4" data-animate="fade-up">
             Customer <span className="grad-amber">Service</span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
+          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base" data-animate="fade-up">
             Delivering exceptional client experiences through proactive
             communication, quality deliverables, and dedicated support.
           </p>
         </div>
 
         {/* Strength cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20 stagger">
           {highlights.map((h, i) => (
             <div
               key={i}
               className="glass rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/20"
+              data-animate="fade-up"
             >
               <div className="text-3xl mb-3">{h.icon}</div>
               <h3 className="font-display font-semibold text-white mb-2">
@@ -127,6 +116,7 @@ export default function CustomerService() {
               className={`grid lg:grid-cols-2 gap-10 items-start ${
                 i % 2 === 1 ? 'lg:grid-flow-dense' : ''
               }`}
+              data-animate="fade-up"
             >
               {/* Info */}
               <div className={i % 2 === 1 ? 'lg:col-start-2' : ''}>
@@ -187,7 +177,7 @@ export default function CustomerService() {
         </div>
 
         {/* Skills */}
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center" data-animate="fade-up">
           <p className="text-slate-500 text-xs uppercase tracking-widest mb-5">
             Customer Service Skills
           </p>
