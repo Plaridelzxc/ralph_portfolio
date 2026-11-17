@@ -3,7 +3,7 @@ import SectionBg from './SectionBg'
 const experiences = [
   {
     company: 'Jodi Fitzgerald | Keller Williams',
-    role: 'Real Estate Leads Caller',
+    role: 'Appointment Setter',
     period: '2025',
     description:
       'Conducted outbound calls to real estate prospects for Jodi Fitzgerald under Keller Williams. Managed and organised extensive lead lists, qualifying FSBO (For Sale By Owner) properties priced under $400K across 20+ US states. Focused on call-to-set workflows with no appointment requirements.',
@@ -18,7 +18,7 @@ const experiences = [
   },
   {
     company: 'SolarStamp.io',
-    role: 'Sales & Social Media Specialist',
+    role: 'Graphic Designer',
     period: '2024',
     description:
       'Supported SolarStamp.io\'s outreach and brand growth by creating promotional graphic assets and managing social media campaigns on Instagram. Helped attract solar companies to their free engineering stamps and letter services.',

@@ -2,6 +2,39 @@ import SectionBg from './SectionBg'
 
 const projects = [
   {
+    name: 'La Chow Website',
+    description:
+      'Event and retail space website showcasing venue options, booking inquiry forms, tenant portal access, and room gallery.',
+    image: '/images/la-chow.jpg',
+    tech: ['WordPress', 'Elementor', 'PHP'],
+    type: 'Website',
+    year: '2025',
+    accent: 'teal',
+    link: 'https://www.thelachow.com/',
+  },
+  {
+    name: 'FutureThinkEdge',
+    description:
+      'Web platform built for FutureThink Hub, giving members and partners a login portal to access community programs and resources.',
+    image: '/images/futurethink.jpg',
+    tech: ['Web Platform'],
+    type: 'Web App',
+    year: '2025',
+    accent: 'violet',
+    link: 'https://futurethinkedge.org/login',
+  },
+  {
+    name: 'FutureThink Hub',
+    description:
+      'Baltimore-based community organization. Contributed to their web presence, content creation, and event promotion pipeline supporting local programs and initiatives.',
+    image: '/images/futurethink.jpg',
+    tech: ['Web Support', 'Content'],
+    type: 'Website',
+    year: '2025',
+    accent: 'cyan',
+    link: 'https://www.futurethinkhub.org/',
+  },
+  {
     name: 'HRIS System',
     description:
       'Human Resource Information System for DevTeam. Features attendance time-in/out, leave management, payroll, performance evaluations, analytics, and role-based access control.',
@@ -20,6 +53,7 @@ const projects = [
     type: 'E-Commerce',
     year: '2025',
     accent: 'emerald',
+    link: 'https://github.com/Plaridelzxc/e-store',
   },
   {
     name: 'RentNav',
@@ -30,6 +64,7 @@ const projects = [
     type: 'Mobile App',
     year: '2025',
     accent: 'cyan',
+    link: 'https://github.com/Plaridelzxc/RentNav',
   },
   {
     name: 'Org Portal',
@@ -40,26 +75,6 @@ const projects = [
     type: 'Web App',
     year: '2025',
     accent: 'emerald',
-  },
-  {
-    name: 'La Chow Website',
-    description:
-      'Event and retail space website showcasing venue options, booking inquiry forms, tenant portal access, and room gallery.',
-    image: '/images/la-chow.jpg',
-    tech: ['WordPress', 'Elementor', 'PHP'],
-    type: 'Website',
-    year: '2024',
-    accent: 'teal',
-  },
-  {
-    name: 'Space Shooter Game',
-    description:
-      'A 2D space shooter built with Python and Pygame featuring asteroid fields, enemy AI, a health bar, score system, and animated sprite effects.',
-    image: '/images/space.jpg',
-    tech: ['Python', 'Pygame', 'OOP'],
-    type: 'Game',
-    year: '2024',
-    accent: 'violet',
   },
 ]
 
@@ -113,10 +128,16 @@ export default function WebDeveloper() {
 
         {/* Project grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger">
-          {projects.map((project, i) => (
-            <div
+          {projects.map((project, i) => {
+            const Wrapper = project.link ? 'a' : 'div'
+            const wrapperProps = project.link
+              ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' }
+              : {}
+            return (
+            <Wrapper
               key={i}
-              className="glass rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-900/20"
+              {...wrapperProps}
+              className="glass rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-900/20 block"
               data-animate="fade-up"
             >
               {/* Screenshot */}
@@ -159,9 +180,17 @@ export default function WebDeveloper() {
                     </span>
                   ))}
                 </div>
+                {project.link && (
+                  <p className="mt-4 text-emerald-400 text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    View Project
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </p>
+                )}
               </div>
-            </div>
-          ))}
+            </Wrapper>
+          )})}
         </div>
 
         {/* Tech stack */}
