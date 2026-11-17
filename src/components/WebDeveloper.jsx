@@ -13,9 +13,9 @@ const projects = [
     link: 'https://www.thelachow.com/',
   },
   {
-    name: 'Org Portal',
+    name: 'FutureThinkEdge',
     description:
-      'School management system for Kupal National Highschool. Handles teachers, students, classes, grading periods, attendance, report cards, and employer portals. Deployed for FutureThink Hub as FutureThinkEdge.',
+      'Organization portal system originally built for Kupal National Highschool, now deployed for FutureThink Hub. Handles teachers, students, classes, grading periods, attendance, report cards, and employer portals.',
     image: '/images/org-portal.jpg',
     tech: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
     type: 'Web App',
