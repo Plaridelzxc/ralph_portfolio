@@ -16,21 +16,6 @@ const experiences = [
     ],
     images: ['/images/jodi.jpg', '/images/jodi1.jpg'],
   },
-  {
-    company: 'SolarStamp.io',
-    role: 'Graphic Designer',
-    period: '2024',
-    description:
-      'Supported SolarStamp.io\'s outreach and brand growth by creating promotional graphic assets and managing social media campaigns on Instagram. Helped attract solar companies to their free engineering stamps and letter services.',
-    highlights: [
-      'Designed promotional graphics for Instagram outreach campaigns',
-      'Managed post scheduling and social media calendar',
-      'Generated qualified leads for engineering stamp services',
-      'Crafted compelling captions and CTAs for solar industry audience',
-      'Tracked campaign engagement and post performance',
-    ],
-    images: ['/images/bolt.jpg', '/images/larson.jpg'],
-  },
 ]
 
 const platforms = [
