@@ -13,11 +13,11 @@ const projects = [
     link: 'https://www.thelachow.com/',
   },
   {
-    name: 'FutureThinkEdge',
+    name: 'Org Portal',
     description:
-      'Web platform built for FutureThink Hub, giving members and partners a login portal to access community programs and resources.',
-    image: '/images/futurethink.jpg',
-    tech: ['Web Platform'],
+      'School management system for Kupal National Highschool. Handles teachers, students, classes, grading periods, attendance, report cards, and employer portals. Deployed for FutureThink Hub as FutureThinkEdge.',
+    image: '/images/org-portal.jpg',
+    tech: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
     type: 'Web App',
     year: '2025',
     accent: 'violet',
@@ -65,16 +65,6 @@ const projects = [
     year: '2025',
     accent: 'cyan',
     link: 'https://github.com/Plaridelzxc/RentNav',
-  },
-  {
-    name: 'Org Portal',
-    description:
-      'School management system for Kupal National Highschool. Handles teachers, students, classes, grading periods, attendance, report cards, and employer portals.',
-    image: '/images/org-portal.jpg',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
-    type: 'Web App',
-    year: '2025',
-    accent: 'emerald',
   },
 ]
 
